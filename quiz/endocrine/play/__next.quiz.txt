@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[39756,["/karada-bouken-quiz/_next/static/chunks/ff1a16fafef87110.js","/karada-bouken-quiz/_next/static/chunks/5d2013ea39502e59.js"],"default"]
 3:I[37457,["/karada-bouken-quiz/_next/static/chunks/ff1a16fafef87110.js","/karada-bouken-quiz/_next/static/chunks/5d2013ea39502e59.js"],"default"]
-0:{"buildId":"8yCf-yKb18APAL2EL4aEt","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"kO6lbzWjvheNGL_pZr1fi","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}

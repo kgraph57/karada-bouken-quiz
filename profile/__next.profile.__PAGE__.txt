@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
 2:I[47257,["/karada-bouken-quiz/_next/static/chunks/ff1a16fafef87110.js","/karada-bouken-quiz/_next/static/chunks/5d2013ea39502e59.js"],"ClientPageRoot"]
-3:I[13278,["/karada-bouken-quiz/_next/static/chunks/d6f3f3bdabeecd06.js","/karada-bouken-quiz/_next/static/chunks/7c89e3e8a2ba22a3.js","/karada-bouken-quiz/_next/static/chunks/cb701ad88b24b36b.js","/karada-bouken-quiz/_next/static/chunks/4253f3cc11943a54.js"],"default"]
+3:I[13278,["/karada-bouken-quiz/_next/static/chunks/d6f3f3bdabeecd06.js","/karada-bouken-quiz/_next/static/chunks/7c89e3e8a2ba22a3.js","/karada-bouken-quiz/_next/static/chunks/cb701ad88b24b36b.js","/karada-bouken-quiz/_next/static/chunks/5a3d2bfa754674b8.js"],"default"]
 6:I[97367,["/karada-bouken-quiz/_next/static/chunks/ff1a16fafef87110.js","/karada-bouken-quiz/_next/static/chunks/5d2013ea39502e59.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"buildId":"8yCf-yKb18APAL2EL4aEt","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/karada-bouken-quiz/_next/static/chunks/4253f3cc11943a54.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"kO6lbzWjvheNGL_pZr1fi","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/karada-bouken-quiz/_next/static/chunks/5a3d2bfa754674b8.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
