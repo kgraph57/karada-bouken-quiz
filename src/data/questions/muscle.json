@@ -1,0 +1,226 @@
+{
+  "category": "muscle",
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "muscle_001",
+      "categorySlug": "muscle",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": "人間の体にはおよそいくつの筋肉があるでしょう？",
+      "choices": ["約200個", "約400個", "約600個", "約800個"],
+      "correctAnswer": "約600個",
+      "hint": "骨の数（約206個）の約3倍です。",
+      "explanation": {
+        "summary": "人体には約600個の骨格筋があり、体重の約40%を占める。",
+        "detail": "人体には約600個の骨格筋（skeletal muscle）が存在し、体重の約40〜45%（男性）または約35〜40%（女性）を占めています。これに加えて心筋（cardiac muscle）と平滑筋（smooth muscle）もありますが、一般的に「筋肉」と呼ぶ場合は骨格筋を指します。\n\n骨格筋は随意筋（自分の意思で動かせる筋肉）であり、骨に付着して関節をまたぐことで体を動かします。一方、心筋と平滑筋は不随意筋（自分の意思では動かせない筋肉）で、心臓の拍動や消化管の蠕動運動などを行います。\n\n最も大きい骨格筋は大殿筋（gluteus maximus）、最も小さいのは耳のあぶみ骨筋（stapedius）で長さわずか約1mmです。",
+        "funFact": "体重60kgの人なら約24kgが筋肉！体の中で最も重い「臓器」は、実は筋肉。",
+        "medicalNote": "サルコペニア（加齢性筋肉減少症）は高齢者のフレイル・転倒の主因です。40歳以降、年約1%ずつ筋肉量が減少するため、早期からの筋力トレーニングが重要です。",
+        "relatedQuestionIds": ["muscle_002", "muscle_005"]
+      },
+      "tags": ["筋肉", "数字", "基礎知識"],
+      "source": "Standring S. Gray's Anatomy 42nd Ed., Chapter 5",
+      "timeLimitSeconds": 20,
+      "xpReward": 10
+    },
+    {
+      "id": "muscle_002",
+      "categorySlug": "muscle",
+      "type": "true_false",
+      "difficulty": 1,
+      "question": "心臓は筋肉でできている。",
+      "correctAnswer": "true",
+      "hint": "心臓は一生休まずに動き続けるポンプです。何でできていると思いますか？",
+      "explanation": {
+        "summary": "心臓は心筋（cardiac muscle）という特殊な筋肉でできており、一生涯にわたって自動的に収縮し続ける。",
+        "detail": "心臓は心筋（cardiac muscle）という特殊な横紋筋で構成されています。心筋は骨格筋と同じく横紋（しまもよう）を持ちますが、大きく異なる特徴があります。\n\n第一に、心筋は不随意筋であり、自律神経の支配は受けるものの自分の意思では動かせません。第二に、心筋細胞同士は介在板（intercalated disc）という特殊な結合で繋がっており、電気信号が細胞間を高速で伝わります。これにより心臓全体が協調して収縮できます。\n\n第三に、心筋には自動能（automaticity）があります。洞結節（SA node）のペースメーカー細胞が自発的に電気信号を発生させるため、心臓は脳からの指令がなくても拍動し続けます。心臓移植後の心臓が動くのもこの自動能のおかげです。",
+        "funFact": "心臓は一生で約30億回拍動する！しかも脳からの命令なしに自分で動ける、唯一の「自立した筋肉」。",
+        "medicalNote": "心筋は再生能力が極めて低いため、心筋梗塞で壊死した心筋は線維化して瘢痕になります。iPS細胞由来心筋細胞シートの研究が進んでいます。",
+        "relatedQuestionIds": ["muscle_001", "muscle_008"]
+      },
+      "tags": ["心筋", "心臓", "不随意筋"],
+      "source": "Guyton and Hall Textbook of Medical Physiology 14th Ed., Chapter 9",
+      "timeLimitSeconds": 20,
+      "xpReward": 10
+    },
+    {
+      "id": "muscle_003",
+      "categorySlug": "muscle",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": "筋肉痛が運動の翌日〜2日後に起こる現象を何という？",
+      "choices": [
+        "急性筋肉痛",
+        "遅発性筋肉痛（DOMS）",
+        "筋膜炎",
+        "横紋筋融解症"
+      ],
+      "correctAnswer": "遅発性筋肉痛（DOMS）",
+      "hint": "英語の略称はDOMSです。Delayed Onset Muscle Sorenessの頭文字です。",
+      "explanation": {
+        "summary": "遅発性筋肉痛（DOMS: Delayed Onset Muscle Soreness）は運動後24〜72時間に出現する筋肉痛で、主に伸張性収縮で起こる。",
+        "detail": "遅発性筋肉痛（DOMS）は、慣れない運動や激しい運動の後24〜72時間後にピークを迎える筋肉の痛みや凝りです。特に伸張性収縮（eccentric contraction：筋肉が伸びながら力を出す動き）で顕著に発生します。階段を下りる、坂道を下る、ゆっくりダンベルを下ろすなどの動作が代表例です。\n\nDOMSのメカニズムは長年「乳酸蓄積説」が信じられてきましたが、現在では否定されています。現在の主流理論は、伸張性収縮による筋線維の微細損傷（Z線の断裂など）が炎症反応を引き起こし、ブラジキニンやプロスタグランジンなどの発痛物質が痛覚受容器を刺激するというものです。\n\n重要なのは、DOMSは筋肉の適応過程の一部であり、同じ運動を繰り返すと「繰り返し効果（repeated bout effect）」により徐々に軽減されるという点です。",
+        "funFact": "筋肉痛の原因は「乳酸」ではなかった！実は筋線維の微細な損傷と炎症反応が原因。長年の常識が覆された。",
+        "medicalNote": "通常のDOMSは数日で自然軽快しますが、運動後に尿が茶褐色になった場合は横紋筋融解症を疑い、直ちに受診が必要です。",
+        "relatedQuestionIds": ["muscle_006", "muscle_009"]
+      },
+      "tags": ["DOMS", "筋肉痛", "運動生理学"],
+      "source": "Cheung K et al. Sports Med. 2003;33(2):145-64",
+      "timeLimitSeconds": 30,
+      "xpReward": 20
+    },
+    {
+      "id": "muscle_004",
+      "categorySlug": "muscle",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": "人体で最も強い力を発揮する筋肉はどれ？",
+      "choices": ["大殿筋", "咬筋（こうきん）", "大腿四頭筋", "広背筋"],
+      "correctAnswer": "咬筋（こうきん）",
+      "hint": "食べ物を噛む時に使う筋肉です。小さいけれど驚くほど強い力を出します。",
+      "explanation": {
+        "summary": "咬筋（masseter）は断面積あたりの力が最大で、最大約70〜100kgの咬合力を生む。",
+        "detail": "「最も強い筋肉」の定義は複数ありますが、単位断面積あたりの力（比筋力）で見ると、咬筋（masseter）が人体最強です。咬筋は顎の閉口運動を担い、側頭筋や内側翼突筋と協調して最大約70〜100kgf（一部の測定では約120kgf）の咬合力を発揮します。\n\n咬筋がこれほど強力なのは、短い筋線維が多数並列に配列した羽状筋（pennate muscle）構造を持つためです。この配列は速度よりも力の発揮に有利で、小さな体積で大きな力を生み出せます。\n\n一方、「最も大きな力」を出す筋肉は大腿四頭筋、「最も大きな仕事量」を出す筋肉は大殿筋です。筋力の「最強」は評価基準によって変わるのです。",
+        "funFact": "人間の噛む力は最大100kg超！体重以上の力を小さな咬筋が生み出している。歯ぎしりで歯が割れるのも納得。",
+        "medicalNote": "夜間の歯ぎしり（ブラキシズム）では咬筋の過活動により咬合力が通常の数倍になることがあります。顎関節症や歯の破折の原因となるため、マウスピースが有効です。",
+        "relatedQuestionIds": ["muscle_001", "muscle_005"]
+      },
+      "tags": ["咬筋", "最強", "咬合力"],
+      "source": "Tortora GJ. Principles of Anatomy and Physiology 16th Ed., Chapter 11",
+      "timeLimitSeconds": 30,
+      "xpReward": 20
+    },
+    {
+      "id": "muscle_005",
+      "categorySlug": "muscle",
+      "type": "fill_in_blank",
+      "difficulty": 3,
+      "question": "筋肉が収縮する仕組みを説明する理論を「＿＿説」（sliding filament theory）という。",
+      "correctAnswer": "滑り説",
+      "hint": "アクチンとミオシンという2つのフィラメントが「滑る」ように動きます。",
+      "explanation": {
+        "summary": "滑り説（sliding filament theory）は、アクチンフィラメントがミオシンフィラメントの間を滑り込むことで筋収縮が起こるという理論。",
+        "detail": "滑り説（sliding filament theory）は1954年にHuxley AFとNiedergerke R、およびHuxley HEとHanson Jの2つのグループが独立に提唱しました。この理論では、筋収縮はフィラメント自体が短縮するのではなく、細いアクチンフィラメントが太いミオシンフィラメントの間に滑り込むことで起こると説明します。\n\n分子レベルでは、ミオシン頭部（クロスブリッジ）がATPのエネルギーを使ってアクチンに結合し、首振り運動（power stroke）を行います。このサイクルが繰り返されることで、アクチンフィラメントがサルコメア（筋節）の中央へ引き込まれ、サルコメアが短縮して筋肉が収縮します。\n\n1つの筋線維には数千個のサルコメアが直列に並んでおり、それぞれが同時に短縮することで、マクロな筋収縮が生み出されます。",
+        "funFact": "筋肉の収縮は分子のミクロな「綱引き」！ミオシンがアクチンをたぐり寄せる動きを毎秒数百回繰り返している。",
+        "medicalNote": "悪性高熱症ではリアノジン受容体の異常によりカルシウムが制御不能に放出され、筋の持続収縮と高体温が起こります。全身麻酔時の致死的合併症として要注意です。",
+        "relatedQuestionIds": ["muscle_008", "muscle_010"]
+      },
+      "tags": ["滑り説", "アクチン", "ミオシン", "筋収縮"],
+      "source": "Huxley AF, Niedergerke R. Nature. 1954;173:971-973; Huxley HE, Hanson J. Nature. 1954;173:973-976",
+      "timeLimitSeconds": 30,
+      "xpReward": 30
+    },
+    {
+      "id": "muscle_006",
+      "categorySlug": "muscle",
+      "type": "true_false",
+      "difficulty": 4,
+      "question": "筋トレで筋肉が太くなるのは、筋線維の「数」が増えるからである。",
+      "correctAnswer": "false",
+      "hint": "筋線維の数と太さ、どちらが変化するのか考えてみましょう。",
+      "explanation": {
+        "summary": "筋トレによる筋肥大は主に筋線維の「太さ」が増す肥大（hypertrophy）であり、筋線維の数が増える増殖（hyperplasia）ではない。",
+        "detail": "筋力トレーニングによる筋肥大のメカニズムは、主に既存の筋線維が太くなる「筋肥大（hypertrophy）」です。筋線維の数が増える「筋増殖（hyperplasia）」はヒトではほとんど起こらないとされています。\n\nトレーニングによる筋線維の微細損傷は、衛星細胞（satellite cell）を活性化します。衛星細胞は筋線維の表面にある幹細胞で、損傷した筋線維に融合して核を提供し、タンパク質合成能力を高めます。これにより筋原線維の数とサイズが増加し、筋線維が太くなります。\n\nmTOR（mechanistic target of rapamycin）経路は筋タンパク質合成の中心的なシグナル伝達経路であり、機械的刺激（トレーニング）、アミノ酸（栄養）、成長因子（IGF-1など）によって活性化されます。",
+        "funFact": "筋トレで筋肉が太くなるのは、筋線維の数が増えるのではなく、1本1本が太くなるから。筋線維の数は生まれた時にほぼ決まっている。",
+        "medicalNote": "筋ジストロフィーでは筋線維が変性・壊死し、衛星細胞による再生が追いつかなくなります。筋線維が脂肪や結合組織に置換される偽性肥大が特徴的です。",
+        "relatedQuestionIds": ["muscle_003", "muscle_005"]
+      },
+      "tags": ["筋肥大", "筋トレ", "衛星細胞"],
+      "source": "Schoenfeld BJ. J Strength Cond Res. 2010;24(10):2857-72",
+      "timeLimitSeconds": 40,
+      "xpReward": 40
+    },
+    {
+      "id": "muscle_007",
+      "categorySlug": "muscle",
+      "type": "multiple_choice",
+      "difficulty": 4,
+      "question": "筋肉のエネルギー源として、最初の数秒間で使われるのはどれ？",
+      "choices": [
+        "ブドウ糖（グルコース）",
+        "クレアチンリン酸（CP）",
+        "脂肪酸",
+        "乳酸"
+      ],
+      "correctAnswer": "クレアチンリン酸（CP）",
+      "hint": "全力ダッシュの最初の数秒間は、すぐにATPを再合成できる物質が使われます。",
+      "explanation": {
+        "summary": "筋収縮の最初の数秒間はクレアチンリン酸（CP）がATPを瞬時に再合成する。持続時間は約8〜10秒。",
+        "detail": "筋肉のエネルギー供給には3つのシステムがあり、運動の強度と持続時間によって使い分けられます。\n\n第1のシステムがATP-CP系（ホスファゲン系）です。筋肉中に蓄えられたクレアチンリン酸（phosphocreatine）がクレアチンキナーゼの触媒によりADPにリン酸基を転移し、瞬時にATPを再合成します。この反応は酸素不要で最速ですが、持続時間は約8〜10秒に限られます。100m走や重量挙げなどの超短時間・高強度運動で主役を務めます。\n\n第2は解糖系（30秒〜2分）、第3は酸化的リン酸化系（有酸素系、2分以上）です。実際にはこれらのシステムは完全に切り替わるのではなく、常に並行して稼働しており、運動強度に応じて主役が入れ替わります。",
+        "funFact": "100m走のウサイン・ボルトが9.58秒で走れるのは、クレアチンリン酸の持続時間（約10秒）とほぼ一致！人間の瞬発力の限界は体内の化学反応で決まっている。",
+        "medicalNote": "クレアチンサプリメントは筋肉内CP量を増加させ、高強度運動のパフォーマンスを向上させるエビデンスがあります。腎機能正常者では安全性が確認されています。",
+        "relatedQuestionIds": ["muscle_005", "muscle_010"]
+      },
+      "tags": ["エネルギー代謝", "ATP", "クレアチンリン酸"],
+      "source": "McArdle WD. Exercise Physiology 8th Ed., Chapter 5",
+      "timeLimitSeconds": 40,
+      "xpReward": 40
+    },
+    {
+      "id": "muscle_008",
+      "categorySlug": "muscle",
+      "type": "multiple_choice",
+      "difficulty": 4,
+      "question": "死後に筋肉が硬直する「死後硬直（rigor mortis）」の直接的な原因はどれ？",
+      "choices": [
+        "筋肉の水分が失われるため",
+        "ATPが枯渇しミオシンがアクチンから離れなくなるため",
+        "筋肉中のタンパク質が変性するため",
+        "神経からの刺激が停止するため"
+      ],
+      "correctAnswer": "ATPが枯渇しミオシンがアクチンから離れなくなるため",
+      "hint": "筋肉が弛緩するにもエネルギーが必要です。そのエネルギーがなくなったらどうなる？",
+      "explanation": {
+        "summary": "死後、ATP合成が停止するとミオシンがアクチンから解離できなくなり、筋肉が硬直する。これが死後硬直の本質。",
+        "detail": "筋収縮のクロスブリッジサイクルでは、ミオシン頭部がアクチンから離れる（解離する）ステップにATPの結合が必須です。生きている間はATPが継続的に供給されるため、筋肉は収縮と弛緩を繰り返せます。\n\n死後、代謝が停止してATP合成が止まると、ミオシン頭部はアクチンに結合したまま（いわゆるrigor complex）離れることができなくなります。これがすべての筋線維で同時に起こることで、全身の筋肉が硬直します。\n\n死後硬直は通常死後2〜4時間で始まり、12〜24時間でピークに達します。その後、自己融解（autolysis）により筋タンパク質が分解されて硬直は徐々に解けていきます。法医学では死後硬直の進行度が死亡時刻推定の手がかりとなります。",
+        "funFact": "「力を抜く」にもATPというエネルギーが必要！筋肉はリラックスするのにもエネルギーを使う。死ぬとATPが尽きて体が硬くなる。",
+        "medicalNote": "全身麻酔でサクシニルコリンを投与した際に起こる悪性高熱症も、筋小胞体からのCa²⁺大量放出→持続的筋収縮→体温上昇というATP消費の暴走が本態です。",
+        "relatedQuestionIds": ["muscle_005", "muscle_002"]
+      },
+      "tags": ["死後硬直", "ATP", "法医学"],
+      "source": "Tortora GJ. Principles of Anatomy and Physiology 16th Ed., Chapter 10; DiMaio VJ. Forensic Pathology 2nd Ed.",
+      "timeLimitSeconds": 40,
+      "xpReward": 40
+    },
+    {
+      "id": "muscle_009",
+      "categorySlug": "muscle",
+      "type": "true_false",
+      "difficulty": 5,
+      "question": "速筋線維（Type II）は遅筋線維（Type I）よりもミトコンドリアが多い。",
+      "correctAnswer": "false",
+      "hint": "マラソンランナーと短距離ランナー、どちらがミトコンドリア（有酸素エネルギー工場）を多く必要とするでしょう？",
+      "explanation": {
+        "summary": "遅筋線維（Type I）の方がミトコンドリアが多く、有酸素代謝に優れる。速筋線維（Type II）は解糖系に依存する。",
+        "detail": "骨格筋の筋線維は大きく遅筋線維（Type I、赤筋）と速筋線維（Type II、白筋）に分類されます。\n\n遅筋線維（Type I）は豊富なミトコンドリアとミオグロビン（酸素貯蔵タンパク質）を持ち、酸化的リン酸化によるATP産生に優れています。持久力に富み、マラソンなどの長時間運動で主役を務めます。赤い色はミオグロビンとチトクロームによるものです。\n\n速筋線維（Type II）はミトコンドリアが少なく、解糖系によるATP産生に依存します。収縮速度と発揮張力が大きいですが、疲労しやすいという特徴があります。100m走やジャンプなどの瞬発的運動に適しています。\n\nType IIはさらにType IIa（中間型、ある程度有酸素能力あり）とType IIx（最も解糖依存）に細分されます。トレーニングによりType IIx→Type IIaへの変換は起こりますが、Type I⇔Type IIの変換は基本的に起こらないとされています。",
+        "funFact": "マグロの赤身は遅筋（赤筋）、ヒラメの白身は速筋（白筋）。魚の身の色の違いは、まさに筋線維タイプの違い！",
+        "medicalNote": "加齢に伴い速筋線維（Type II）が選択的に萎縮するため、高齢者はとっさの動きが苦手になります。転倒予防にはパワートレーニング（速い動きの筋トレ）が有効です。",
+        "relatedQuestionIds": ["muscle_007", "muscle_006"]
+      },
+      "tags": ["筋線維タイプ", "遅筋", "速筋", "ミトコンドリア"],
+      "source": "Bottinelli R, Reggiani C. Prog Biophys Mol Biol. 2000;73(2-4):195-262",
+      "timeLimitSeconds": 45,
+      "xpReward": 50
+    },
+    {
+      "id": "muscle_010",
+      "categorySlug": "muscle",
+      "type": "fill_in_blank",
+      "difficulty": 5,
+      "question": "筋収縮の引き金となるイオンは「＿＿イオン」で、筋小胞体から放出されてトロポニンに結合する。",
+      "correctAnswer": "カルシウム",
+      "hint": "元素記号はCa。骨にも多く含まれるミネラルです。",
+      "explanation": {
+        "summary": "カルシウムイオン（Ca²⁺）が筋小胞体から放出されてトロポニンCに結合し、アクチン上のミオシン結合部位を露出させることで筋収縮が始まる。",
+        "detail": "筋収縮の興奮収縮連関（excitation-contraction coupling）は、以下のステップで進行します。\n\n1. 運動神経からのインパルスが神経筋接合部でアセチルコリンを放出\n2. 筋細胞膜に活動電位が発生し、T管（横行小管）を伝播\n3. T管のジヒドロピリジン受容体（DHPR）が筋小胞体のリアノジン受容体（RyR）を活性化\n4. 筋小胞体からCa²⁺が大量に放出（安静時の約100倍の濃度に上昇）\n5. Ca²⁺がトロポニンC（TnC）に結合\n6. トロポニン-トロポミオシン複合体の構造変化により、アクチン上のミオシン結合部位が露出\n7. ミオシン頭部がアクチンに結合し、クロスブリッジサイクルが開始\n\n弛緩時にはSERCA（筋小胞体Ca²⁺-ATPase）がATPを使ってCa²⁺を筋小胞体に回収し、トロポニンからCa²⁺が離れることでミオシン結合部位が再び遮蔽されます。",
+        "funFact": "筋収縮のスイッチはカルシウム！骨を強くするだけでなく、すべての動きの起点となる。体内で最も多用途なミネラル。",
+        "medicalNote": "低カルシウム血症ではテタニー（筋の持続収縮・痙攣）が起こります。一方、ダントロレンは筋小胞体からのCa²⁺放出を抑制する薬剤で、悪性高熱症の特効薬です。",
+        "relatedQuestionIds": ["muscle_005", "muscle_008"]
+      },
+      "tags": ["カルシウム", "興奮収縮連関", "トロポニン", "筋小胞体"],
+      "source": "Bers DM. Excitation-Contraction Coupling and Cardiac Contractile Force. Springer, 2001; Guyton and Hall 14th Ed., Chapter 7",
+      "timeLimitSeconds": 45,
+      "xpReward": 50
+    }
+  ]
+}
