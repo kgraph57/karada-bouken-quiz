@@ -1,6 +1,6 @@
 :HL["/karada-bouken-quiz/_next/static/chunks/bed6cda49cc16c29.css","style"]
 :HL["/karada-bouken-quiz/_next/static/chunks/e0e32c2771490c47.css","style"]
-:HL["/karada-bouken-quiz/_next/static/chunks/df81f15e6fa2daff.css","style"]
+:HL["/karada-bouken-quiz/_next/static/chunks/9e294df623a94e70.css","style"]
 :HL["/karada-bouken-quiz/_next/static/media/00f457ce1a97fd24-s.p.ffc6af07.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/karada-bouken-quiz/_next/static/media/011f4f4acc84d3b5-s.p.2789269d.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/karada-bouken-quiz/_next/static/media/04638758743ba138-s.p.2f536064.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -241,4 +241,4 @@
 :HL["/karada-bouken-quiz/_next/static/media/fb3b186da2df25f3-s.p.e2dabea6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/karada-bouken-quiz/_next/static/media/fcad824565039905-s.p.18b4bf22.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/karada-bouken-quiz/_next/static/media/fe17762eda88ad44-s.p.9018d37a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"buildId":"YmMRwgrNX_fDlEBsxgbbx","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"quiz","paramType":null,"paramKey":"quiz","hasRuntimePrefetch":false,"slots":{"children":{"name":"categorySlug","paramType":"d","paramKey":"sensory","hasRuntimePrefetch":false,"slots":{"children":{"name":"play","paramType":null,"paramKey":"play","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"8yCf-yKb18APAL2EL4aEt","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"quiz","paramType":null,"paramKey":"quiz","hasRuntimePrefetch":false,"slots":{"children":{"name":"categorySlug","paramType":"d","paramKey":"sensory","hasRuntimePrefetch":false,"slots":{"children":{"name":"play","paramType":null,"paramKey":"play","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
