@@ -1,27 +1,35 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+
 interface ProgressBarProps {
   readonly current: number;
   readonly total: number;
 }
 
 export function ProgressBar({ current, total }: ProgressBarProps) {
-  const percentage = Math.round((current / total) * 100);
-
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-sm text-muted-foreground font-medium">
-        {current}/{total}
-      </span>
-      <div className="relative h-2 flex-1 rounded-full bg-muted overflow-hidden">
-        <div
-          className="h-full rounded-full bg-primary transition-all duration-300 ease-out"
-          style={{ width: `${percentage}%` }}
-        />
+    <div className="space-y-1">
+      <div className="flex items-center justify-between">
+        <span className="text-sm font-heading font-bold text-muted-foreground">
+          Q{current}
+        </span>
+        <span className="text-xs text-muted-foreground tabular-nums">
+          {current} / {total}
+        </span>
       </div>
-      <span className="text-sm text-muted-foreground tabular-nums">
-        {percentage}%
-      </span>
+      <div className="flex gap-1">
+        {Array.from({ length: total }).map((_, i) => (
+          <div
+            key={i}
+            className={cn(
+              "h-1.5 flex-1 rounded-full transition-all duration-300",
+              i < current ? "bg-primary" : "bg-muted",
+              i === current - 1 && "bg-primary shadow-sm",
+            )}
+          />
+        ))}
+      </div>
     </div>
   );
 }

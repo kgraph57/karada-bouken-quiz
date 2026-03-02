@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { Question, UserAnswer } from "@/types/quiz";
 import { ChoiceQuestion } from "./ChoiceQuestion";
 import { TrueFalseQuestion } from "./TrueFalseQuestion";
@@ -42,7 +43,7 @@ export function QuizCard({
       const result = onAnswer(answer, elapsed);
       setUserAnswer(result);
     },
-    [isAnswered, timer, onAnswer]
+    [isAnswered, timer, onAnswer],
   );
 
   // タイマー切れ時の自動処理
@@ -62,7 +63,14 @@ export function QuizCard({
     onNext();
   };
 
-  const difficultyLabels = ["", "かんたん", "ふつう", "むずかしい", "超むずい", "鬼ムズ"];
+  const difficultyLabels = [
+    "",
+    "かんたん",
+    "ふつう",
+    "むずかしい",
+    "超むずい",
+    "鬼ムズ",
+  ];
 
   return (
     <div className="space-y-4">
@@ -88,38 +96,48 @@ export function QuizCard({
       </div>
 
       {/* 問題 */}
-      {question.type === "multiple_choice" && question.choices && (
-        <ChoiceQuestion
-          question={question.question}
-          choices={question.choices}
-          correctAnswer={question.correctAnswer}
-          hint={question.hint}
-          isAnswered={isAnswered}
-          selectedAnswer={selectedAnswer}
-          onSelect={handleSelect}
-        />
-      )}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={question.id}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -30 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          {question.type === "multiple_choice" && question.choices && (
+            <ChoiceQuestion
+              question={question.question}
+              choices={question.choices}
+              correctAnswer={question.correctAnswer}
+              hint={question.hint}
+              isAnswered={isAnswered}
+              selectedAnswer={selectedAnswer}
+              onSelect={handleSelect}
+            />
+          )}
 
-      {question.type === "true_false" && (
-        <TrueFalseQuestion
-          question={question.question}
-          correctAnswer={question.correctAnswer}
-          isAnswered={isAnswered}
-          selectedAnswer={selectedAnswer}
-          onSelect={handleSelect}
-        />
-      )}
+          {question.type === "true_false" && (
+            <TrueFalseQuestion
+              question={question.question}
+              correctAnswer={question.correctAnswer}
+              isAnswered={isAnswered}
+              selectedAnswer={selectedAnswer}
+              onSelect={handleSelect}
+            />
+          )}
 
-      {question.type === "fill_in_blank" && (
-        <FillInQuestion
-          question={question.question}
-          correctAnswer={question.correctAnswer}
-          hint={question.hint}
-          isAnswered={isAnswered}
-          selectedAnswer={selectedAnswer}
-          onSelect={handleSelect}
-        />
-      )}
+          {question.type === "fill_in_blank" && (
+            <FillInQuestion
+              question={question.question}
+              correctAnswer={question.correctAnswer}
+              hint={question.hint}
+              isAnswered={isAnswered}
+              selectedAnswer={selectedAnswer}
+              onSelect={handleSelect}
+            />
+          )}
+        </motion.div>
+      </AnimatePresence>
 
       {/* 解説 */}
       {isAnswered && userAnswer && (

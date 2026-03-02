@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { CheckCircle, XCircle } from "lucide-react";
 
@@ -47,12 +48,31 @@ export function ChoiceQuestion({
           const isCorrectChoice = choice === correctAnswer;
           const letter = String.fromCharCode(65 + index);
 
+          const getAnimation = () => {
+            if (!isAnswered) return {};
+            if (isCorrectChoice) {
+              return {
+                scale: [1, 1.03, 1],
+                transition: { duration: 0.3 },
+              };
+            }
+            if (isSelected && !isCorrectChoice) {
+              return {
+                x: [0, -6, 6, -4, 4, 0],
+                transition: { duration: 0.4 },
+              };
+            }
+            return {};
+          };
+
           return (
-            <button
+            <motion.button
               key={choice}
               type="button"
               onClick={() => !isAnswered && onSelect(choice)}
               disabled={isAnswered}
+              animate={getAnimation()}
+              whileTap={!isAnswered ? { scale: 0.98 } : undefined}
               className={cn(
                 "flex items-center gap-3 rounded-xl border-2 p-4 text-left transition-all duration-200",
                 !isAnswered &&
@@ -62,18 +82,18 @@ export function ChoiceQuestion({
                   isSelected &&
                   !isCorrectChoice &&
                   "border-red-500 bg-red-50",
-                !isAnswered && "border-border"
+                !isAnswered && "border-border",
               )}
             >
               <span
                 className={cn(
-                  "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold",
+                  "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold transition-colors",
                   isAnswered && isCorrectChoice && "bg-green-500 text-white",
                   isAnswered &&
                     isSelected &&
                     !isCorrectChoice &&
                     "bg-red-500 text-white",
-                  !isAnswered && "bg-muted text-muted-foreground"
+                  !isAnswered && "bg-muted text-muted-foreground",
                 )}
               >
                 {isAnswered && isCorrectChoice ? (
@@ -85,7 +105,7 @@ export function ChoiceQuestion({
                 )}
               </span>
               <span className="font-medium">{choice}</span>
-            </button>
+            </motion.button>
           );
         })}
       </div>
