@@ -12,7 +12,7 @@ interface ShareButtonsProps {
 
 function buildShareText(result: QuizResult): string {
   const accuracy = Math.round(
-    (result.correctCount / result.totalQuestions) * 100
+    (result.correctCount / result.totalQuestions) * 100,
   );
   const emoji =
     accuracy === 100
@@ -24,21 +24,6 @@ function buildShareText(result: QuizResult): string {
           : "📚";
 
   return `${emoji} からだ冒険クイズで ${result.correctCount}/${result.totalQuestions} 正解（${accuracy}%）！\n${result.categoryName}カテゴリに挑戦しました\n+${result.totalXP} XP獲得\n\n#からだ冒険クイズ #からぼう`;
-}
-
-function buildShareUrl(
-  result: QuizResult,
-  categoryIcon: string,
-  baseUrl: string
-): string {
-  const params = new URLSearchParams({
-    score: String(result.correctCount),
-    total: String(result.totalQuestions),
-    category: result.categoryName,
-    icon: categoryIcon,
-    xp: String(result.totalXP),
-  });
-  return `${baseUrl}/api/og?${params.toString()}`;
 }
 
 export function ShareButtons({ result, categoryIcon }: ShareButtonsProps) {
@@ -81,9 +66,7 @@ export function ShareButtons({ result, categoryIcon }: ShareButtonsProps) {
 
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-sm text-muted-foreground text-center">
-        結果をシェア
-      </p>
+      <p className="text-sm text-muted-foreground text-center">結果をシェア</p>
       <div className="flex justify-center gap-2">
         <Button
           variant="outline"

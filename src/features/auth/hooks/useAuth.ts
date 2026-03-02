@@ -13,7 +13,7 @@ interface UseAuthReturn {
   readonly signUp: (
     email: string,
     password: string,
-    displayName: string
+    displayName: string,
   ) => Promise<void>;
   readonly signOut: () => Promise<void>;
 }
@@ -26,7 +26,7 @@ export function useAuth(): UseAuthReturn {
   const configured = useMemo(() => isSupabaseConfigured(), []);
   const supabase = useMemo(
     () => (configured ? createClient() : null),
-    [configured]
+    [configured],
   );
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export function useAuth(): UseAuthReturn {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: `${window.location.origin}/karada-bouken-quiz/quiz`,
       },
     });
   }, [supabase]);
@@ -73,7 +73,7 @@ export function useAuth(): UseAuthReturn {
       });
       if (error) throw new Error(error.message);
     },
-    [supabase]
+    [supabase],
   );
 
   const signUp = useCallback(
@@ -88,7 +88,7 @@ export function useAuth(): UseAuthReturn {
       });
       if (error) throw new Error(error.message);
     },
-    [supabase]
+    [supabase],
   );
 
   const signOut = useCallback(async () => {
