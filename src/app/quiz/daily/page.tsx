@@ -1,16 +1,26 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { QuizCard } from "@/components/quiz/QuizCard";
 import { useQuizSession } from "@/features/quiz/hooks/useQuizSession";
 import { useAuth } from "@/features/auth/hooks/useAuth";
+import { useLocalProgress } from "@/features/quiz/hooks/useLocalProgress";
 import { ALL_QUESTIONS } from "@/data/questions";
 import { selectDailyQuestions } from "@/features/quiz/utils/questionSelector";
 import { saveQuizSession } from "@/features/quiz/utils/saveSession";
 import { ShareButtons } from "@/components/share/ShareButtons";
-import { ArrowLeft, Trophy, RotateCcw, Calendar } from "lucide-react";
+import { WrongAnswerReview } from "@/components/quiz/WrongAnswerReview";
+import { Confetti } from "@/components/gamification/Confetti";
+import { LevelUpBanner } from "@/components/gamification/LevelUpBanner";
+import type { LevelDefinition } from "@/types/gamification";
+import { ArrowLeft, Trophy, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+interface LevelUpInfo {
+  readonly previousLevel: LevelDefinition;
+  readonly newLevel: LevelDefinition;
+}
 
 function getTodayLabel(): string {
   const now = new Date();
@@ -28,7 +38,10 @@ export default function DailyChallengePage() {
     submitAnswer,
     nextQuestion,
   } = useQuizSession();
+  const { level, addSessionResult } = useLocalProgress();
   const hasSaved = useRef(false);
+  const hasTrackedLocal = useRef(false);
+  const [levelUpInfo, setLevelUpInfo] = useState<LevelUpInfo | null>(null);
 
   useEffect(() => {
     if (!session) {
@@ -44,6 +57,20 @@ export default function DailyChallengePage() {
     }
   }, [isCompleted, result, user, session?.difficultyLevel]);
 
+  useEffect(() => {
+    if (isCompleted && result && !hasTrackedLocal.current) {
+      hasTrackedLocal.current = true;
+      const info = addSessionResult({
+        categorySlug: "daily",
+        correctCount: result.correctCount,
+        totalQuestions: result.totalQuestions,
+        totalXP: result.totalXP,
+        isPerfect: result.perfectScore,
+      });
+      if (info) setLevelUpInfo(info);
+    }
+  }, [isCompleted, result, addSessionResult]);
+
   if (isCompleted && result) {
     const accuracy = Math.round(
       (result.correctCount / result.totalQuestions) * 100
@@ -53,7 +80,8 @@ export default function DailyChallengePage() {
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50 px-4 py-8">
-        <div className="mx-auto max-w-lg">
+        <Confetti active={result.perfectScore} />
+        <div className="mx-auto max-w-lg space-y-6">
           <div className="rounded-3xl border-2 border-amber-200 bg-white/90 p-8 text-center space-y-6">
             <div>
               <Calendar className="mx-auto h-8 w-8 text-amber-500 mb-2" />
@@ -99,6 +127,14 @@ export default function DailyChallengePage() {
               </div>
             </div>
 
+            {/* レベル表示 */}
+            <div className="rounded-xl bg-amber-50/80 p-3">
+              <p className="text-sm text-muted-foreground">現在のレベル</p>
+              <p className="font-heading font-bold">
+                {level.icon} Lv.{level.level} {level.title}
+              </p>
+            </div>
+
             <p className="text-lg font-medium">
               {result.perfectScore
                 ? "パーフェクト！今日も完璧な冒険！"
@@ -126,6 +162,17 @@ export default function DailyChallengePage() {
               </Button>
             </div>
           </div>
+
+          {/* レベルアップ通知 */}
+          {levelUpInfo && (
+            <LevelUpBanner
+              previousLevel={levelUpInfo.previousLevel}
+              newLevel={levelUpInfo.newLevel}
+            />
+          )}
+
+          {/* 間違えた問題の復習 */}
+          <WrongAnswerReview answers={result.answers} />
         </div>
       </div>
     );

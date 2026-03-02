@@ -1,18 +1,28 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { QuizCard } from "@/components/quiz/QuizCard";
 import { useQuizSession } from "@/features/quiz/hooks/useQuizSession";
 import { useAuth } from "@/features/auth/hooks/useAuth";
+import { useLocalProgress } from "@/features/quiz/hooks/useLocalProgress";
 import { getQuestionsByCategory } from "@/data/questions";
 import { getCategoryBySlug } from "@/data/categories";
 import { selectQuestions } from "@/features/quiz/utils/questionSelector";
 import { saveQuizSession } from "@/features/quiz/utils/saveSession";
 import type { CategorySlug } from "@/types/quiz";
+import type { LevelDefinition } from "@/types/gamification";
 import { ShareButtons } from "@/components/share/ShareButtons";
+import { WrongAnswerReview } from "@/components/quiz/WrongAnswerReview";
+import { Confetti } from "@/components/gamification/Confetti";
+import { LevelUpBanner } from "@/components/gamification/LevelUpBanner";
 import { Trophy, RotateCcw, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+interface LevelUpInfo {
+  readonly previousLevel: LevelDefinition;
+  readonly newLevel: LevelDefinition;
+}
 
 interface PlayContentProps {
   readonly categorySlug: string;
@@ -29,7 +39,10 @@ export function PlayContent({ categorySlug }: PlayContentProps) {
     submitAnswer,
     nextQuestion,
   } = useQuizSession();
+  const { level, addSessionResult } = useLocalProgress();
   const hasSaved = useRef(false);
+  const hasTrackedLocal = useRef(false);
+  const [levelUpInfo, setLevelUpInfo] = useState<LevelUpInfo | null>(null);
 
   const category = getCategoryBySlug(categorySlug);
 
@@ -48,6 +61,20 @@ export function PlayContent({ categorySlug }: PlayContentProps) {
     }
   }, [isCompleted, result, user, session?.difficultyLevel]);
 
+  useEffect(() => {
+    if (isCompleted && result && !hasTrackedLocal.current) {
+      hasTrackedLocal.current = true;
+      const info = addSessionResult({
+        categorySlug: result.categorySlug,
+        correctCount: result.correctCount,
+        totalQuestions: result.totalQuestions,
+        totalXP: result.totalXP,
+        isPerfect: result.perfectScore,
+      });
+      if (info) setLevelUpInfo(info);
+    }
+  }, [isCompleted, result, addSessionResult]);
+
   if (!category) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -65,7 +92,8 @@ export function PlayContent({ categorySlug }: PlayContentProps) {
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-purple-50 px-4 py-8">
-        <div className="mx-auto max-w-lg">
+        <Confetti active={result.perfectScore} />
+        <div className="mx-auto max-w-lg space-y-6">
           <div className="rounded-3xl border-2 bg-white/90 p-8 text-center space-y-6">
             <div>
               {result.perfectScore && <div className="text-5xl mb-4">🎉</div>}
@@ -105,6 +133,14 @@ export function PlayContent({ categorySlug }: PlayContentProps) {
               </div>
             </div>
 
+            {/* レベル表示 */}
+            <div className="rounded-xl bg-primary/5 p-3">
+              <p className="text-sm text-muted-foreground">現在のレベル</p>
+              <p className="font-heading font-bold">
+                {level.icon} Lv.{level.level} {level.title}
+              </p>
+            </div>
+
             <p className="text-lg font-medium">
               {result.perfectScore
                 ? "パーフェクト！すばらしい冒険でした！"
@@ -122,6 +158,9 @@ export function PlayContent({ categorySlug }: PlayContentProps) {
                 size="lg"
                 className="gap-2"
                 onClick={() => {
+                  hasSaved.current = false;
+                  hasTrackedLocal.current = false;
+                  setLevelUpInfo(null);
                   const questions = getQuestionsByCategory(
                     categorySlug as CategorySlug,
                   );
@@ -140,6 +179,17 @@ export function PlayContent({ categorySlug }: PlayContentProps) {
               </Button>
             </div>
           </div>
+
+          {/* レベルアップ通知 */}
+          {levelUpInfo && (
+            <LevelUpBanner
+              previousLevel={levelUpInfo.previousLevel}
+              newLevel={levelUpInfo.newLevel}
+            />
+          )}
+
+          {/* 間違えた問題の復習 */}
+          <WrongAnswerReview answers={result.answers} />
         </div>
       </div>
     );

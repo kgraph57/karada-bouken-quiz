@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { CircleCheck, CircleX, CheckCircle, XCircle } from "lucide-react";
 
@@ -34,12 +35,31 @@ export function TrueFalseQuestion({
           const isSelected = selectedAnswer === value;
           const isCorrectChoice = value === correctAnswer;
 
+          const getAnimation = () => {
+            if (!isAnswered) return {};
+            if (isCorrectChoice) {
+              return {
+                scale: [1, 1.05, 1],
+                transition: { duration: 0.3 },
+              };
+            }
+            if (isSelected && !isCorrectChoice) {
+              return {
+                x: [0, -8, 8, -5, 5, 0],
+                transition: { duration: 0.4 },
+              };
+            }
+            return {};
+          };
+
           return (
-            <button
+            <motion.button
               key={value}
               type="button"
               onClick={() => !isAnswered && onSelect(value)}
               disabled={isAnswered}
+              animate={getAnimation()}
+              whileTap={!isAnswered ? { scale: 0.95 } : undefined}
               className={cn(
                 "flex flex-col items-center justify-center gap-2 rounded-2xl border-2 p-8 transition-all duration-200",
                 !isAnswered &&
@@ -49,7 +69,7 @@ export function TrueFalseQuestion({
                   isSelected &&
                   !isCorrectChoice &&
                   "border-red-500 bg-red-50",
-                !isAnswered && "border-border"
+                !isAnswered && "border-border",
               )}
             >
               {isAnswered && isCorrectChoice ? (
@@ -60,7 +80,7 @@ export function TrueFalseQuestion({
                 <Icon className="h-12 w-12 text-muted-foreground" />
               )}
               <span className="text-2xl font-heading font-bold">{label}</span>
-            </button>
+            </motion.button>
           );
         })}
       </div>

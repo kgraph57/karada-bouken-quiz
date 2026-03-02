@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle } from "lucide-react";
@@ -25,7 +26,9 @@ export function FillInQuestion({
   const [inputValue, setInputValue] = useState("");
   const [showHint, setShowHint] = useState(false);
 
-  const isCorrect = selectedAnswer?.trim().toLowerCase() === correctAnswer.trim().toLowerCase();
+  const isCorrect =
+    selectedAnswer?.trim().toLowerCase() ===
+    correctAnswer.trim().toLowerCase();
 
   const handleSubmit = () => {
     if (inputValue.trim()) {
@@ -50,36 +53,58 @@ export function FillInQuestion({
       )}
 
       <div className="space-y-4">
-        <div className="relative">
+        <motion.div
+          animate={
+            isAnswered && !isCorrect
+              ? { x: [0, -6, 6, -4, 4, 0] }
+              : isAnswered && isCorrect
+                ? { scale: [1, 1.02, 1] }
+                : {}
+          }
+          transition={{ duration: 0.3 }}
+          className="relative"
+        >
           <input
             type="text"
             value={isAnswered ? (selectedAnswer ?? "") : inputValue}
             onChange={(e) => !isAnswered && setInputValue(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && !isAnswered && handleSubmit()}
+            onKeyDown={(e) =>
+              e.key === "Enter" && !isAnswered && handleSubmit()
+            }
             disabled={isAnswered}
             placeholder="答えを入力..."
             className={cn(
               "w-full rounded-xl border-2 px-4 py-3 text-lg font-medium outline-none transition-all",
               !isAnswered && "border-border focus:border-primary",
               isAnswered && isCorrect && "border-green-500 bg-green-50",
-              isAnswered && !isCorrect && "border-red-500 bg-red-50"
+              isAnswered && !isCorrect && "border-red-500 bg-red-50",
             )}
           />
           {isAnswered && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="absolute right-3 top-1/2 -translate-y-1/2"
+            >
               {isCorrect ? (
                 <CheckCircle className="h-6 w-6 text-green-500" />
               ) : (
                 <XCircle className="h-6 w-6 text-red-500" />
               )}
-            </div>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
 
         {isAnswered && !isCorrect && (
-          <p className="text-sm text-muted-foreground">
-            正解: <span className="font-bold text-green-600">{correctAnswer}</span>
-          </p>
+          <motion.p
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-sm text-muted-foreground"
+          >
+            正解:{" "}
+            <span className="font-bold text-green-600">{correctAnswer}</span>
+          </motion.p>
         )}
 
         {!isAnswered && (
